@@ -1,4 +1,3 @@
-
 //equations/relativity//
 //rx = user/prescribed input//
 /*
@@ -18,8 +17,6 @@
  */
 
 
-//test line//
-//test2//
 
 //PRO = ing1[6];
 //FAT = ing1[7];
@@ -45,12 +42,16 @@
 //var decreaseAmount
 
 $(function(){
-    $('#plusA').on('click', increaseAmount);
+    $('#plusA').on('click', function() {
+        increaseAmount()
+    });
 
     $('#minusA').on('click', decreaseAmount);
 
 
+    /*
     $("#enter").on("click", function(){
+
         console.log($("#servingSize").val());
         var value = $("#servingSize").val()
         console.log(value);
@@ -58,6 +59,7 @@ $(function(){
         return false;
     })
 
+     */
 
     function increaseAmount(){
         // grab current value from the input box
@@ -70,19 +72,38 @@ $(function(){
 
         $('#servingSize').val(newVal)
     }
-});
+
 
 function decreaseAmount() {
     // grab current value from the input box
     var currentValue = $('#servingSize').val()
     console.log((currentValue));
     // increment value by 1
-    var newVal = parseInt(currentValue) - 1;
+    var newVal = parseInt (currentValue) - 1;
     console.log(newVal);
     // append new value to DOM
-    $('#servingSizeA').val(newVal)
+    $('#servingSize').val(newVal)
 
 };
+
+//////////////call the function for the input box (enter PRO, etc)//////////////////////
+    $('#PRO').on('click', function() {
+        //grab current value from box
+        var currentPro = $('#PRO').val()
+        var currentValue = $('#servingSize').val()
+        console.log ((currentPro))
+        //convert to percentage
+        var newPercentPro = calcPercentPro(currentPro, currentValue)
+        console.log(newPercentPro)
+        $('#percentPro').val(newPercentPro)
+    });
+
+});
+
+
+
+//for now, re - use redundant ' var currentValue' for desired scope.
+//there is a better way, but get it working first, then refactor.
 
 
 
