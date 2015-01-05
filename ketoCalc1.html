@@ -91,6 +91,7 @@
 
 
 
+
         <td><button id="plusA"> + </div><button id="minusA"> - </div></td>
 
         <form>
@@ -99,99 +100,111 @@
 
             <td>grams</td>
             <td><input type='text'  placeholder="enter name"/></td>
-            <td><input type='text'  placeholder="%protein"/></td>
+            <td><input id='percentPro'  placeholder="percent pro"/></td>
             <td><input type='text'  placeholder="%fat"/></td>
             <td><input type='text'  placeholder="%carb"/></td>
 
+            <!--        mdn notes:
+                    <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+                        <input type="range" name="b" value="50" /> +
+                        <input type="number" name="a" value="10" /> =
+                        <output name="result"></output>
+                    </form>
 
+            -->
             <td><input id="PRO" type='text'  placeholder="enter protien per serving"/></td>
-            <td><input id="FAT" type='text'  placeholder="enter fat per serving"/></td>
-            <td><input id="CHO" type='text'  placeholder="enter carbs per serving"/></td>
 
-        </form>
+            <!-- working on this to link plusA/minusA to PRO, percentPRO -->
+          <form oninput="result.value=parseInt(percentPro.value) * 0.01 * parseInt(servingSize.value)"></form>
+          <output name="result"></output>
 
-    </tr>
+          <td><input id="FAT" type='text'  placeholder="enter fat per serving"/></td>
+          <td><input id="CHO" type='text'  placeholder="enter carbs per serving"/></td>
+          </td>
+      </form>
 
-    <!--
-    <tr>
-        <td><button id="plusB"> + </div></td>
-        <td><button id="minusB"> - </div></td>
-        <td id="amountGramsB"><input type='text'/></td>
-        <td>"GRAMS"</td>
-        <td>"1g"</td>
-        <td>"ing2"</td>
-        <td>"%PR0"</td>
-        <td>"%FAT"</td>
-        <td>"%CHO"</td>
-        <td><input type='text'/></td>
-        <td><input type='text'/></td>
-        <td><input type='text'/></td>
+  </tr>
 
-    </tr>
-    <tr>
-        <td><button id="plus"> + </div></td>
-        <td><button id="minus"> - </div></td>
-        <td><input type='text'/></td>
-        <td>"GRAMs</td>
-        <td>"1g"</td>
-        <td>"ing3"</td>
-        <td>"%PR0"</td>
-        <td>"%FAT"</td>
-        <td>"%CHO"</td>
-        <td><input type='text'/></td>
-        <td><input type='text'/></td>
-        <td><input type='text'/></td>
+  <!--
+  <tr>
+      <td><button id="plusB"> + </div></td>
+      <td><button id="minusB"> - </div></td>
+      <td id="amountGramsB"><input type='text'/></td>
+      <td>"GRAMS"</td>
+      <td>"1g"</td>
+      <td>"ing2"</td>
+      <td>"%PR0"</td>
+      <td>"%FAT"</td>
+      <td>"%CHO"</td>
+      <td><input type='text'/></td>
+      <td><input type='text'/></td>
+      <td><input type='text'/></td>
 
-    </tr>
+  </tr>
+  <tr>
+      <td><button id="plus"> + </div></td>
+      <td><button id="minus"> - </div></td>
+      <td><input type='text'/></td>
+      <td>"GRAMs</td>
+      <td>"1g"</td>
+      <td>"ing3"</td>
+      <td>"%PR0"</td>
+      <td>"%FAT"</td>
+      <td>"%CHO"</td>
+      <td><input type='text'/></td>
+      <td><input type='text'/></td>
+      <td><input type='text'/></td>
 
-        <tr>
-            <td><button id="plus"> + </div></td>
-            <td><button id="minus"> - </div></td>
-            <td><input type='text'/></td>
-            <td>"GRAMS"</td>
-            <td>"1g"</td>
-            <td>"ing4"</td>
-            <td>"%PR0"</td>
-            <td>"%FAT"</td>
-            <td>"%CHO"</td>
-            <td><input type='text'/></td>
-            <td><input type='text'/></td>
-            <td><input type='text'/></td>
+  </tr>
 
-        </tr>
+      <tr>
+          <td><button id="plus"> + </div></td>
+          <td><button id="minus"> - </div></td>
+          <td><input type='text'/></td>
+          <td>"GRAMS"</td>
+          <td>"1g"</td>
+          <td>"ing4"</td>
+          <td>"%PR0"</td>
+          <td>"%FAT"</td>
+          <td>"%CHO"</td>
+          <td><input type='text'/></td>
+          <td><input type='text'/></td>
+          <td><input type='text'/></td>
 
-        <tr>
-            <td><button id="plus"> + </div></td>
-            <td><button id="minus"> - </div></td>
-            <td><input type='text'/></td>
-            <td>"GRAMS"</td>
-            <td>"1g"</td>
-            <td>"ing5"</td>
-            <td>"%PR0"</td>
-            <td>"%FAT"</td>
-            <td>"%CHO"</td>
-            <td><input type='text'/></td>
-            <td><input type='text'/></td>
-            <td><input type='text'/></td>
+      </tr>
 
-        </tr>
+      <tr>
+          <td><button id="plus"> + </div></td>
+          <td><button id="minus"> - </div></td>
+          <td><input type='text'/></td>
+          <td>"GRAMS"</td>
+          <td>"1g"</td>
+          <td>"ing5"</td>
+          <td>"%PR0"</td>
+          <td>"%FAT"</td>
+          <td>"%CHO"</td>
+          <td><input type='text'/></td>
+          <td><input type='text'/></td>
+          <td><input type='text'/></td>
 
-        <tr>
-            <td><button id="plus"> + </div></td>
-            <td><button id="minus"> - </div></td>
-            <td><input type='text'/></td>
-            <td>"GRAMS"</td>
-            <td>"1g"</td>
-            <td>"ing6"</td>
-            <td>"%PR0"</td>
-            <td>"%FAT"</td>
-            <td>"%CHO"</td>
-            <td><input type='text'/></td>
-            <td><input type='text'/></td>
-            <td><input type='text'/></td>
+      </tr>
 
-        </tr>
-    -->
+      <tr>
+          <td><button id="plus"> + </div></td>
+          <td><button id="minus"> - </div></td>
+          <td><input type='text'/></td>
+          <td>"GRAMS"</td>
+          <td>"1g"</td>
+          <td>"ing6"</td>
+          <td>"%PR0"</td>
+          <td>"%FAT"</td>
+          <td>"%CHO"</td>
+          <td><input type='text'/></td>
+          <td><input type='text'/></td>
+          <td><input type='text'/></td>
+
+      </tr>
+  -->
     <tr>
 
         <td></td>
@@ -226,3 +239,4 @@
 <script type = "text/javascript" src ="http://code.jquery.com/jquery-1.11.2.js"></script>
 <script type = "text/javascript" src ="ketoCalc1.js"></script>
 </html>
+

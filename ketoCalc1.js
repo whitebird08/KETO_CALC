@@ -37,16 +37,15 @@
  var totalCHO = [ing1[8] + ing2[8] + ing3[8] + ing4[8] + ing5[8]];
 
  */
-
-//var increaseAmount
-//var decreaseAmount
-
+//adjusted function, plusA, minusA for more typical syntax
 $(function(){
     $('#plusA').on('click', function() {
         increaseAmount()
     });
 
-    $('#minusA').on('click', decreaseAmount);
+    $('#minusA').on('click', function(){
+        decreaseAmount()
+    });
 
 
     /*
@@ -93,7 +92,7 @@ function decreaseAmount() {
         var currentValue = $('#servingSize').val()
         console.log ((currentPro))
         //convert to percentage
-        var newPercentPro = calcPercentPro(currentPro, currentValue)
+        var newPercentPro = parseInt (calcPercentPro(currentPro, currentValue))
         console.log(newPercentPro)
         $('#percentPro').val(newPercentPro)
     });
@@ -105,6 +104,35 @@ function decreaseAmount() {
 //for now, re - use redundant ' var currentValue' for desired scope.
 //there is a better way, but get it working first, then refactor.
 
+
+//need to link plusA/minusA to PRO, percentPro values...see mdn notes
+
+
+/*          mdn notes:
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+<input type="range" name="b" value="50" /> +
+<input type="number" name="a" value="10" /> =
+<output name="result"></output>
+</form>
+
+or
+
+<!-- This sets the label's text to the textbox value on each keystroke. -->
+<script language="javascript">
+function setLabel(txtBox){
+    document.getElementById('lbl').value = txtBox.value;
+}
+</script>
+<label id="lbl"/>
+<textbox oninput="setLabel(this);"/>
+ */
+/*  possible function for set values button (which might not be necessary with oninput/ouput)
+function setPro(PRO){
+    document.getElementById('lbl').value = PRO.value;
+}
+<label id="lbl"/>
+<textbox oninput="setPro(this);"/>
+*/
 
 
 
