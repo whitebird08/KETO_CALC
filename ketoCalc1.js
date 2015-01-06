@@ -41,10 +41,18 @@
 $(function(){
     $('#plusA').on('click', function() {
         increaseAmount()
+        calcLinkPercentPro()
+        calcLinkPro()
+
+
     });
 
     $('#minusA').on('click', function(){
         decreaseAmount()
+        calcLinkPercentPro()
+        calcLinkPro()
+
+
     });
 
 
@@ -84,9 +92,34 @@ function decreaseAmount() {
     $('#servingSize').val(newVal)
 
 };
-
+//oninput instead on onclick???
 //////////////call the function for the input box (enter PRO, etc)//////////////////////
-    $('#PRO').on('click', function() {
+//    $('#PRO').on('click', function() {
+//        //grab current value from box
+//        var currentPro = $('#PRO').val()
+//        var currentValue = $('#servingSize').val()
+//        console.log ((currentPro))
+//        //convert to percentage
+//        var newPercentPro = parseInt (calcPercentPro(currentPro, currentValue))
+//        console.log(newPercentPro)
+//        $('#percentPro').val(newPercentPro)
+//    });
+
+
+        $('#PRO').on('click', function() {
+            //grab current value from box
+            var currentPro = $('#PRO').val()
+            var currentValue = $('#servingSize').val()
+            console.log ((currentPro))
+            //convert to percentage
+            var newPercentPro = parseInt (calcPercentPro(currentPro, currentValue))
+            console.log(newPercentPro)
+            //append new value ot DOM
+            $('#percentPro').val(newPercentPro)
+        });
+
+//
+  function calcLinkPercentPro() {
         //grab current value from box
         var currentPro = $('#PRO').val()
         var currentValue = $('#servingSize').val()
@@ -94,8 +127,9 @@ function decreaseAmount() {
         //convert to percentage
         var newPercentPro = parseInt (calcPercentPro(currentPro, currentValue))
         console.log(newPercentPro)
+      //append new value to DOM
         $('#percentPro').val(newPercentPro)
-    });
+    };
 
 });
 
@@ -136,7 +170,7 @@ function setPro(PRO){
 
 
 
-var PRO = percentPRO * 0.01 * servingSize;
+var PRO = percentPro * 0.01 * servingSize;
 var FAT = percentFAT * 0.01 * servingSize;
 var CHO = percentCHO * 0.01 * servingSize;
 
@@ -155,7 +189,7 @@ function calcPercentCho(CHO, servingSize){
 };
 
 
-var percentPRO = (PRO) / (servingSize) * (100);
+var percentPro = (PRO) / (servingSize) * (100);
 var percentFAT = (FAT / servingSize) * (100);
 var percentCHO =  (CHO / servingSize) * (100);
 
@@ -176,20 +210,18 @@ var percentCHO =  (CHO / servingSize) * (100);
  */
 function calcPro (percentPRO, servingSize){
     return percentPro * .01 * servingSize
-}
+};
+
 
 function calcFat (percentFAT, servingSize) {
     return percentFat * .01 * servingSize
-}
+};
 
 function calcCho (percentCHO, servingSize) {
     return percentCho * .01 * servingSize
-}
-
-
+};
 
 /*
-
  PSEUDOCODE:
  enter serving size (servingSize) in grams
  enter nutrients (PRO, FAT, CHO) per serving in grams
